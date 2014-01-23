@@ -32,6 +32,6 @@ EXPOSE 3000
 # Run the app
 CMD ["node", "/app"]
 
-# Build this container via: sudo docker build -t <your username>/node-redis-hit-counter .
-# Run this container via: sudo docker run -p 49160:8080 -d <your username>/node-redis-hit-counter
+# Build this container via: sudo docker build -t <your username>/nodejs .
+# Run this container via: sudo docker run -p 49160:8080 -d <your username>/nodejs
 
