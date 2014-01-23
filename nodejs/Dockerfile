@@ -7,25 +7,30 @@ FROM ubuntu
 RUN apt-get update && apt-get upgrade
 
 # Install some packages we need
-RUN apt-get install python-software-properties python g++ make software-properties-common
+RUN apt-get -y install python-software-properties python g++ make software-properties-common
 
 # Add node repository to sources.list and update apt
 RUN add-apt-repository ppa:chris-lea/node.js && apt-get update
 
+# Found this trick to get around an unresolved dependency
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise universe" >> /etc/apt/sources.list
+RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ precise universe" >> /etc/apt/sources.list
+RUN apt-get update
+
 # Install node.js
-RUN apt-get install nodejs
+RUN apt-get -y install nodejs
 
 # Drop our node app into the container:
-ADD ./node-redis-hit-counter /
+ADD ./app /app
 
 # Install app dependencies
-RUN cd /node-redis-hit-counter && npm install
+RUN cd /app && npm install
 
 # Expose the app's listening port
 EXPOSE 3000
 
 # Run the app
-CMD ["node", "/node-redis-hit-counter/app"]
+CMD ["node", "/app"]
 
 # Build this container via: sudo docker build -t <your username>/node-redis-hit-counter .
 # Run this container via: sudo docker run -p 49160:8080 -d <your username>/node-redis-hit-counter
