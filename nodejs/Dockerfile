@@ -25,6 +25,7 @@ ADD ./app /app
 
 # Install app dependencies
 RUN cd /app && npm install
+RUN printenv
 
 # Expose the app's listening port
 EXPOSE 3000
@@ -33,5 +34,5 @@ EXPOSE 3000
 CMD ["node", "/app/app"]
 
 # Build this container via: sudo docker build -t <your username>/nodejs .
-# Run this container via: sudo docker run -p 8080:3000 -d <your username>/nodejs
+# Run this container via: sudo docker run -t -i -p 8080:3000 -link redis -name nodeapp danielkennedy/nodejs
 

@@ -16,6 +16,6 @@ EXPOSE 6379
 # Run the redis server
 CMD ["redis-server"]
 
-# Build this container via: sudo docker build -t <your username>/redis .
-# Run this container via: sudo docker run -p 16379:6379 -d <your username>/redis
+# Build this container via: sudo docker build -t danielkennedy/redis .
+# Run this container via: sudo docker run -name redis -p 6379:6379 -d danielkennedy/redis 
 
