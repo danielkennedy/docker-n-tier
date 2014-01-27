@@ -34,5 +34,5 @@ EXPOSE 3000
 CMD ["node", "/app/app"]
 
 # Build this container via: sudo docker build -t <your username>/nodejs .
-# Run this container via: sudo docker run -t -i -p 8080:3000 -link redis -name nodeapp danielkennedy/nodejs
+# Run this container via: sudo docker run -t -i -p 3000:3000 -link redis:db -name nodeapp danielkennedy/nodejs
 

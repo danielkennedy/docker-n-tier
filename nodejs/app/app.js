@@ -8,9 +8,6 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var redis = require('redis');
-var port = 6379;
-var hostname = 'localhost';
-var client = redis.createClient(port, hostname);
 
 var app = express();
 
