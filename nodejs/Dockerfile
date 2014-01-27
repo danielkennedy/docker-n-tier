@@ -33,5 +33,5 @@ EXPOSE 3000
 CMD ["node", "/app/app"]
 
 # Build this container via: sudo docker build -t <your username>/nodejs .
-# Run this container via: sudo docker run -p 49160:8080 -d <your username>/nodejs
+# Run this container via: sudo docker run -p 8080:3000 -d <your username>/nodejs
 
