@@ -30,7 +30,7 @@ RUN cd /app && npm install
 EXPOSE 3000
 
 # Run the app
-CMD ["node", "/app"]
+CMD ["node", "/app/app"]
 
 # Build this container via: sudo docker build -t <your username>/nodejs .
 # Run this container via: sudo docker run -p 49160:8080 -d <your username>/nodejs
