@@ -11,7 +11,7 @@ RUN tar xvzf redis-stable.tar.gz
 RUN cd redis-stable && make install
 
 # Expose the listening port
-EXPOSE 16379
+EXPOSE 6379
 
 # Run the redis server
 CMD ["redis-server"]
