@@ -5,7 +5,9 @@ After=docker.service
 Requires=docker.service
 
 [Service]
-ExecStart=/usr/bin/docker run -name redis -p 6379:6379 danielkennedy/redis
+ExecStartPre=while [ 1 ]; do [ -e /var/run/docker.sock ] && break; sleep 1; done;
+ExecStart=/usr/bin/docker run -name redis -p 6379:6379 -d danielkennedy/redis
+ExecStop=/usr/bin/docker stop redis
 
 [Install]
 WantedBy=local.target
