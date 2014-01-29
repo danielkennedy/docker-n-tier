@@ -7,7 +7,6 @@ ConditionPathExists=/var/run/docker.sock
 
 [Service]
 ExecStart=/usr/bin/docker run -name redis -p 6379:6379 -d danielkennedy/redis
-ExecStop=/usr/bin/docker stop redis
 
 [Install]
 WantedBy=local.target

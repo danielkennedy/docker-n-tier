@@ -6,7 +6,6 @@ Requires=redis.service
 After=network.target
 
 [Service]
-ExecStartPre=while [ 1 ]; do [ -e /var/run/docker.sock ] && break; sleep 1; done;
 ExecStart=/usr/bin/docker run -t -i -p 3000:3000 -link redis:db -name nodeapp -d danielkennedy/nodejs
 ExecStop=/usr/bin/docker stop redis
 
