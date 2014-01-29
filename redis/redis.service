@@ -3,9 +3,9 @@ Description=Redis Service
 After=network.target
 After=docker.service
 Requires=docker.service
+ConditionPathExists=/var/run/docker.sock
 
 [Service]
-ExecStartPre=while [ 1 ]; do [ -e /var/run/docker.sock ] && break; sleep 1; done;
 ExecStart=/usr/bin/docker run -name redis -p 6379:6379 -d danielkennedy/redis
 ExecStop=/usr/bin/docker stop redis
 
