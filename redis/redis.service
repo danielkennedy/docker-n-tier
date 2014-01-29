@@ -1,11 +1,12 @@
 [Unit]
 Description=Redis Service
-After=etcd.service
+After=network.target
 After=docker.service
+Requires=docker.service
 
 [Service]
-ExecStart=/usr/bin/docker run -name redis -p 6379:6379 -d danielkennedy/redis
-ExecStop=/usr/bin/docker stop redis
+ExecStart=/usr/bin/docker run -name redis -p 6379:6379 danielkennedy/redis
 
 [Install]
 WantedBy=local.target
+

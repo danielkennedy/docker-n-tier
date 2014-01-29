@@ -1,12 +1,13 @@
 [Unit]
 Description=NodeJS Service
-After=etcd.service
 After=docker.service
 After=redis.service
+Requires=redis.service
+After=network.target
 
 [Service]
-ExecStart=/usr/bin/docker run -t -i -p 3000:3000 -link redis:db -name nodeapp -d danielkennedy/nodejs
-ExecStop=/usr/bin/docker stop redis
+ExecStart=/usr/bin/docker run -t -i -p 3000:3000 -link redis:db -name nodeapp danielkennedy/nodejs
 
 [Install]
 WantedBy=local.target
+
