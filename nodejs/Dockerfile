@@ -4,7 +4,7 @@
 FROM ubuntu
 
 # make sure all packages are up to date
-RUN apt-get update && apt-get upgrade
+RUN apt-get -y update
 
 # Install some packages we need
 RUN apt-get -y install python-software-properties python g++ make software-properties-common
@@ -33,6 +33,6 @@ EXPOSE 3000
 # Run the app
 CMD ["node", "/app/app"]
 
-# Build this container via: sudo docker build -t <your username>/nodejs .
-# Run this container via: sudo docker run -t -i -p 3000:3000 -link redis:db -name nodeapp danielkennedy/nodejs
+# Build this container via: docker build -t mysandbox/nodejs .
+# Run this container via: docker run -t -i -p 3000:3000 -link redis:db -name nodeapp -d mysandbox/nodejs
 
