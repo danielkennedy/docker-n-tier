@@ -1,10 +1,10 @@
 # DOCKER-VERSION 0.7.5
 
 # Start with the ubuntu base image
-FROM ubuntu
+FROM ubuntu:precise
 
 # make sure all packages are up to date
-RUN apt-get update && apt-get upgrade
+RUN apt-get update
 
 # Install some packages we need
 RUN apt-get -y install python-software-properties python g++ make software-properties-common

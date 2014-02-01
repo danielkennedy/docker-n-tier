@@ -1,10 +1,10 @@
 # DOCKER-VERSION 0.7.5
 
 # Start with the ubuntu base image
-FROM ubuntu
+FROM ubuntu:precise
 
 # Install redis-server (looks like a hack, but just following this: http://redis.io/topics/quickstart)
-RUN apt-get update && apt-get upgrade
+RUN apt-get update
 RUN apt-get -y install wget build-essential
 RUN wget http://download.redis.io/redis-stable.tar.gz
 RUN tar xvzf redis-stable.tar.gz
